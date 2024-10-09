@@ -6,14 +6,14 @@ import userRoutes from "./routes/userRoutes.js";
 import storeRoutes from "./routes/storeRoutes.js";
 import clientRoutes from "./routes/clientRoutes.js";
 import invoiceRoutes from "./routes/invoiceRoutes.js";
-//import cors from "cors";
+import cors from "cors";
 
 
 configDotenv();
 connectDB();
 
 const app = express();
-// app.use(cors({ origin: '*' }));
+app.use(cors({ origin: 'https://invocify-client.onrender.com' }));
 app.use(express.json());
 app.use(cookieParser());
 
