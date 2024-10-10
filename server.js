@@ -13,7 +13,7 @@ configDotenv();
 connectDB();
 
 const app = express();
-app.use(cors({ origin: 'https://invocify-client.onrender.com' }));
+//app.use(cors({ origin: 'https://invocify-client.onrender.com' }));
 app.use(express.json());
 app.use(cookieParser());
 
