@@ -142,8 +142,9 @@ export const updateUserProfile = async (req, res) => {
 
 // 7. forgot password
 export async function forgotPassword(req, res) {
+  const { email } = req.body;
   try {
-    const { email } = req.body;
+    
     const user = await User.findOne({ email });
     if (!user) {
       return res.send({ success: false, message: "User not found" });
@@ -180,7 +181,7 @@ export async function forgotPassword(req, res) {
         
                   <!-- Call to Action Button -->
                   <div style="text-align: center; margin: 20px 0;">
-                    <a href="http://localhost:5173/auth/reset-password/${token}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Reset Your Password</a>
+                    <a href="https://invocify-server.onrender.com/auth/reset-password/${token}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Reset Your Password</a>
                   </div>
         
                   <!-- Security Reminder -->
@@ -245,7 +246,7 @@ export async function resetPassword(req, res,next) {
 
       var mailOptions = {
         from: process.env.EMAIL,
-        to: email, // user.email
+        to: user.email, // user.email
         subject: "Password Reset Successful",
         html: `
           <div style="font-family: Arial, sans-serif; color: #333;">
@@ -265,7 +266,7 @@ export async function resetPassword(req, res,next) {
               <p>Your password has been successfully reset. You can now log in using your new password.</p>
               
               <div style="text-align: center; margin: 20px 0;">
-                <a href="http://localhost:5173/auth/" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Log In</a>
+                <a href="https://invocify-server.onrender.com/auth/" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Log In</a>
               </div>
       
               <!-- Reminder -->
