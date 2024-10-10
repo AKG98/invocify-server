@@ -160,7 +160,7 @@ export async function forgotPassword(req, res) {
     });
     var mailOptions = {
       from: process.env.EMAIL,
-      to: "avinashakg1998@gmail.com", //user.email
+      to: email, //user.email
       subject: "Reset Password",
       html: `
               <div style="font-family: Arial, sans-serif; color: #333;">
@@ -245,7 +245,7 @@ export async function resetPassword(req, res,next) {
 
       var mailOptions = {
         from: process.env.EMAIL,
-        to: "avinashakg1998@gmail.com", // user.email
+        to: email, // user.email
         subject: "Password Reset Successful",
         html: `
           <div style="font-family: Arial, sans-serif; color: #333;">
